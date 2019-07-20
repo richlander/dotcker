@@ -11,6 +11,14 @@ public class Docker
         return foo.StandardOutput;
     }
 
+    public static StreamReader DokcerImagePull(string image)
+    {
+        var psi = GetPsi();
+        psi.Arguments = "images";
+        var foo = Process.Start(psi);
+        return foo.StandardOutput;
+    }
+
     private static ProcessStartInfo GetPsi()
     {
         var psi = new ProcessStartInfo();
